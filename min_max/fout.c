@@ -1,5 +1,7 @@
 //out file
-
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void findminmax(int arr[], int n ,int *max , int *min){
 	
@@ -11,7 +13,7 @@ void findminmax(int arr[], int n ,int *max , int *min){
 		if(arr[i] > *max)
 			*max = arr[i];
 		if(arr[i] < *min)
-			*min = arr[0];
+			*min = arr[i];
 			}
 
 		}
