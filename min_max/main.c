@@ -42,10 +42,20 @@ int usrarr[size];
 		break;
 
 		case 2:
-			assert(usrarr[i]==max);
-      assert(usrarr[i]==min);
+			if(usrarr[i]==max);
+      if(usrarr[i]==min);
       break;
-  }
+      
+    case 3:
+      for(int i=0;i<n;i++){
+        assert(usrarr[i]==max);
+        assert(usrarr[i]==min);
+
+      }
+      printf("if assertf fail array elements are not identical");
+
+    case 4:
+      printf("null array");
 
 	return 0;
 
