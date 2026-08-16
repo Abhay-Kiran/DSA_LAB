@@ -42,7 +42,11 @@ int usrarr[size];
 		break;
 
 		case 2:
-			if(
+			assert(usrarr[i]==max);
+      assert(usrarr[i]==min);
+      break;
+  }
+
 	return 0;
 
 }
