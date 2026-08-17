@@ -16,10 +16,11 @@ scanf("%d",&n);
 
 
   if(n==0 | n>1000){
-   printf("array is invalid");
+   printf("-1\n");
    return 1;
   }
 
+  
 
 int usrarr[n];
 
@@ -28,6 +29,11 @@ int usrarr[n];
    printf("enter elemnt %d",i+1);
    scanf("%d",&usrarr[i]);
 
+  }
+
+  if(usrarr==NULL){
+    printf("-1\n");
+    return 1;
   }
 
   if(palindrome(usrarr,n) ) {
