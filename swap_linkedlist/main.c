@@ -11,14 +11,26 @@
 #include "header.h"
 
 
-
-
-
 int main()
 {
 struct Student *Head=NULL;
- 
-insert(&Head);
+
+int select;
+
+while(select != 6) {
+  
+ printf("select preffered action (1)insert data\n");
+ printf("(2)case\n");
+ scanf("%d",&select);
+  switch(select){
+    case 1:
+      insert(&Head);
+      break;
+    case 2:
+      break;
+  }
+}
+
     
 
     

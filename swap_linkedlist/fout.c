@@ -22,8 +22,8 @@ if (node==NULL){
 }
 node->next=NULL;
 
-printf("enter name");
-scanf("%[^\n]",node->name);
+printf("enter name\n");
+scanf("%[ ^\n]",node->name);
 printf("enter id");
 scanf("%d",&node->std_id);
 printf("enter marks");
@@ -48,5 +48,31 @@ while(temp->next != NULL){
 
 
 }
+
+}
+
+
+
+void switch(struct Student *Head,int value){
+
+struct Student *temp=Head;
+  if(Head==NULL){
+  printf("no database found\n");
+  return;
+  }
+  
+  while(temp != NULL){
+
+    if(temp->std_id=student_id_usr){
+      
+
+    }
+  }
+
+
+
+
+
+
 
 }
