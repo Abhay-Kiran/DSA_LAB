@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
  struct Student{
     char name[50];
@@ -23,7 +24,7 @@ if (node==NULL){
 node->next=NULL;
 
 printf("enter name\n");
-scanf("%[ ^\n]",node->name);
+scanf(" %[^\n]",node->name);
 printf("enter id");
 scanf("%d",&node->std_id);
 printf("enter marks");
@@ -49,30 +50,182 @@ while(temp->next != NULL){
 
 }
 
+temp->next=node;
+
 }
 
 
 
-void switch(struct Student *Head,int value){
+void update(struct Student *Head,int value){
 
-struct Student *temp=Head;
-  if(Head==NULL){
-  printf("no database found\n");
-  return;
-  }
-  
-  while(temp != NULL){
+  struct Student *temp=Head;
+   if(Head==NULL){
+    printf("no database found\n");
+    return;
+   }
+  int stid;
+  int data;
+  int choice;
+  int new_id;
+  int new_marks;
+  char new_name[50];
+    struct Student *val_temp;
 
-    if(temp->std_id=student_id_usr){
+   printf("enter student id you want to update\n") ;
+   scanf("%d",&stid);
+
+
+    if(Head==NULL){
+      printf("no matching data found");
+
+        }
+      while(temp!=NULL){
+        if(temp->std_id==stid){
+          printf("enter which value to update:1name 2:id 3:marks 4: swap");
+          scanf("%d",&choice);
+          switch(choice){
+           
+            case 1:
+              printf("enter new name");
+              scanf(" %49[^\n]",new_name);
+              strcpy(temp->name,new_name);
+              break;
+            case 2:
+             printf("enter new id");
+              scanf("%d",&new_id);
+              temp->std_id=new_id;
+              break;
+            case 3:
+              printf("enter new marks");
+              scanf("%d",&new_marks);
+              temp->marks=new_marks;
+              break;
+
+
+
+          }
+        }
+        temp=temp->next;
+      }
+    
+}      
+
+  void print(struct Student *head){
+    {
+        if(head==NULL)
+        {
+            printf("no data is in the database\n");
+            return;
+        }
+        while(head!=NULL)
+        {
+            printf("Student id: %d  student name :%s  student marks:%f\n", head->std_id,head->name,head->marks);
+            head=head->next;
+        }
+    }   
+  }  
+
+
+
+void swap(struct Student *Head)
+{
+    int id1, id2;
+    int choice;
+
+    struct Student *temp1 = Head;
+    struct Student *temp2 = Head;
+
+    printf("Enter first student ID: ");
+    scanf("%d", &id1);
+
+    printf("Enter second student ID: ");
+    scanf("%d", &id2);
+
+    /* Find first student */
+    while (temp1 != NULL)
+    {
+        if (temp1->std_id == id1)
+        {
+            break;
+        }
+
+        temp1 = temp1->next;
+    }
+
+    /* Find second student */
+    while (temp2 != NULL)
+    {
+        if (temp2->std_id == id2)
+        {
+            break;
+        }
+
+        temp2 = temp2->next;
+    }
+
+    /* Check if first student exists */
+    if (temp1 == NULL)
+    {
+        printf("Student with ID %d not found\n", id1);
+        return;
+    }
+
+    /* Check if second student exists */
+    if (temp2 == NULL)
+    {
+        printf("Student with ID %d not found\n", id2);
+        return;
+    }
+
+    printf("\nWhat do you want to swap?\n");
+    printf("1. Name\n");
+    printf("2. ID\n");
+    printf("3. Marks\n");
+    printf("Enter choice: ");
+    scanf("%d", &choice);
+
+    switch (choice)
+    {
+        case 1:
+        {
+            char temp_name[50];
+
+            strcpy(temp_name, temp1->name);
+            strcpy(temp1->name, temp2->name);
+            strcpy(temp2->name, temp_name);
+
+            printf("Names swapped successfully\n");
+            break;
+        }
+
+        case 2:
+        {
+            int temp_id;
+
+            temp_id = temp1->std_id;
+            temp1->std_id = temp2->std_id;
+            temp2->std_id = temp_id;
+
+            printf("IDs swapped successfully\n");
+            break;
+        }
+
+        case 3:
+        {
+            float temp_marks;
+
+            temp_marks = temp1->marks;
+            temp1->marks = temp2->marks;
+            temp2->marks = temp_marks;
+
+            printf("Marks swapped successfully\n");
+            break;
+        }
+
+        default:
+            printf("Invalid choice\n");
+    }
+}
       
 
-    }
-  }
 
-
-
-
-
-
-
-}

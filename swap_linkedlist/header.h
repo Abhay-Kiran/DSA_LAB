@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 struct Student{
     char name[50];
@@ -15,9 +15,10 @@ struct Student{
 
 void insert(struct Student **Head);
 
+void update(struct Student *Head,int value);
 
+void print(struct Student *head);
+ 
 
-
-
-
+void swap(struct Student *Head);
 #endif 

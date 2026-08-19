@@ -9,24 +9,33 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "header.h"
-
+#include <string.h>
 
 int main()
 {
 struct Student *Head=NULL;
-
+int value;
 int select;
 
 while(select != 6) {
   
  printf("select preffered action (1)insert data\n");
  printf("(2)case\n");
+ printf("(3)print\n");
+ printf("(4)swap\n");
  scanf("%d",&select);
   switch(select){
     case 1:
       insert(&Head);
       break;
     case 2:
+      update(Head,value);
+      break;
+    case 3:
+      print(Head);
+      break;
+    case 4:
+      swap(Head);
       break;
   }
 }
